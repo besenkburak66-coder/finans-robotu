@@ -4,7 +4,7 @@ on:
   schedule:
     # Her gece Türkiye saati ile 03:00'te otomatik uyan ve çalış (UTC 00:00)
     - cron: '0 0 * * *'
-  workflow_dispatch: # Gündüzleri de canın istediğinde elle çalıştırabilmen için buton ekler
+  workflow_dispatch: # Elle tetikleme butonu
 
 jobs:
   run-analyst:
@@ -20,7 +20,7 @@ jobs:
 
       - name: Gerekli Kütüphaneleri Yükle
         run: |
-          pip install requests
+          pip install requests google-generativeai
 
       - name: Finans Ajanını Tetikle ve Analizi Başlat
         run: python ajan.py
